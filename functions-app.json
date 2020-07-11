@@ -4,7 +4,7 @@
   "parameters": {
     "appName": {
       "type": "string",
-      "defaultValue": "[concat('fnapp', uniqueString(resourceGroup().id))]",
+      "defaultValue": "TimeTrackingFunctionApp2",
       "metadata": {
         "description": "The name of the function app that you wish to create."
       }
@@ -30,7 +30,7 @@
     },
     "runtime": {
       "type": "string",
-      "defaultValue": "node",
+      "defaultValue": "dotnet",
       "allowedValues": [
         "node",
         "dotnet",
@@ -48,8 +48,7 @@
     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'azfunctions')]",
     "functionWorkerRuntime": "[parameters('runtime')]",
     "insightsLocation": {
-      "AzureCloud": "eastus",
-      "AzureUSGovernment": "usgovvirginia"
+      "AzureCloud": "uksouth"
     }
   },
   "resources": [
@@ -106,10 +105,6 @@
             {
               "name": "FUNCTIONS_EXTENSION_VERSION",
               "value": "~2"
-            },
-            {
-              "name": "WEBSITE_NODE_DEFAULT_VERSION",
-              "value": "~10"
             },
             {
               "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
